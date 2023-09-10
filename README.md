@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+# MovieFinder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is for showcasing the API of https://www.omdbapi.com/.
+
+A few features not yet included are:
+- Sorting of movies by custom fields
+- Multiple search terms
+- Server side data fetching
+- Server side rendering
+- Cache API results
+- Image pregeneration
+
+Further todos are:
+- Approach high test coverage
 
 ## Available Scripts
 

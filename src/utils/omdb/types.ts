@@ -1,6 +1,8 @@
 export type Type = 'movie' | 'series' | 'episode';
 export type Rated = 'PG' | 'TV-MA' | string;
 export type Genre = 'Animation' | 'Adventure' | 'Comedy' | 'Family' | 'Fantasy' | string;
+type NotAvailable = 'N/A';
+type Boolean = 'True' | 'False';
 
 interface Rating {
   Source: string;
@@ -10,28 +12,28 @@ interface Rating {
 export interface FetchResponse {
   Actors: string;
   Awards: string;
-  BoxOffice: string | "N/A";
+  BoxOffice: string | NotAvailable;
   Country: string;
   Director: string;
-  DVD: string | "N/A";
+  DVD: string | NotAvailable;
   Genre: Genre[];
   imdbRating: string;
   imdbVotes: string;
   imdbID: string;
   Language: string;
-  Metascore: string | "N/A";
-  Plot: string | "N/A";
-  Poster: string | "N/A";
-  Production: string | "N/A";
+  Metascore: string | NotAvailable;
+  Plot: string | NotAvailable;
+  Poster: string | NotAvailable;
+  Production: string | NotAvailable;
   Rated: Rated;
   Ratings: Rating[];
   Released: string;
   Runtime: string;
   Title: string;
   Type: Type;
-  Website: string | "N/A";
+  Website: string | NotAvailable;
   Writers: string[];
-  Year: number;
+  Year: string;
 }
 
 export interface Search {
@@ -39,16 +41,16 @@ export interface Search {
   Year: string;
   imdbID: string;
   Type: Type;
-  Poster: string | 'N/A';
+  Poster: string | NotAvailable;
 }
 
 export interface SearchResponse {
   Search: Search[];
   totalResults: string;
-  Response: 'True' | 'False';
+  Response: Boolean;
 }
 
-type ResponseStatus = 'True' | 'False';
+type ResponseStatus = Boolean;
 
 export interface Response {
   Error?: string;

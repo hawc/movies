@@ -7,14 +7,21 @@ import { Loader } from 'components/Loader/Loader';
 type GroupedMovies = null | { [key: string]: Movie[] };
 
 export function MoviesList({ movies }: { movies: Movie[] }) {
+  const [loading, setLoading] = useState<boolean>(true);
+  const [groupedMovies, setGroupedMovies] = useState<GroupedMovies | null>(null);
+  const [movieCategories, setMovieCategories] = useState<string[]>([]);
+
   const movierSorter: Worker = useMemo(
-    () => new Worker(new URL("../../workers/groupMovies.ts", import.meta.url)),
+    () => new Worker(new URL('../../workers/groupMovies.ts', import.meta.url)),
     []
   );
 
-  const [loading, setLoading] = useState<boolean>(true);
-
-  const [groupedMovies, setGroupedMovies] = useState<GroupedMovies | null>(null);
+  useEffect(() => {
+    if (groupedMovies) {
+      const movieCategories = Object.keys(groupedMovies).sort((a, b) => b.localeCompare(a, 'en', { sensitivity: 'base' }));
+      setMovieCategories(movieCategories);
+    }
+  }, [groupedMovies]);
 
   useEffect(() => {
     if (window.Worker) {
@@ -34,13 +41,17 @@ export function MoviesList({ movies }: { movies: Movie[] }) {
     }
   }, [movierSorter]);
 
+  if (!groupedMovies || loading) {
+    return (
+      <Loader>
+        Nearly done
+      </Loader>
+    );
+  }
+
   return (
     <>
-      {loading ? (
-        <Loader>
-          Nearly done
-        </Loader>
-      ) : groupedMovies && Object.keys(groupedMovies).sort((a, b) => b.localeCompare(a, 'en', { sensitivity: 'base' })).map((moviesYear: string) => (
+      {movieCategories.map((moviesYear: string) => (
         <div key={`${moviesYear}${groupedMovies[moviesYear].length}`}>
           <h2>{moviesYear}</h2>
           <div className='movies-list-frame'>

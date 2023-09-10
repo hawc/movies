@@ -1,4 +1,4 @@
-import { groupBy } from "../utils/groupBy";
+import { groupBy } from '../utils/groupBy/groupBy';
 import type { Search as Movie } from 'utils/omdb/types';
 
 interface GroupMoviesMessageBody {

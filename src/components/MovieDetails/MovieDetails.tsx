@@ -49,7 +49,7 @@ export function MovieDetails({ movie }: { movie: Movie }) {
             </>
           )}
           <p className='movie-details-imdb-link'>
-            <Link to={`https://imdb.com/title/${movie.imdbID}`}>Visit IMDb page</Link>
+            <Link to={`https://imdb.com/title/${movie.imdbID}`} target='_blank' rel='noopener'>Visit IMDb page</Link>
           </p>
         </div>
       </div>

@@ -15,5 +15,6 @@ export function MovieItem({ movie }: { movie: Movie }) {
           {movie.Title}
         </div>
       </Link>
-    </li>)
+    </li>
+  );
 }

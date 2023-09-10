@@ -2,7 +2,7 @@
   display: flex;
   gap: 2rem;
   overflow: auto;
-  padding: 2rem 50px;
+  padding: 1rem 50px 2rem;
 }
 
 .movies-list-frame {

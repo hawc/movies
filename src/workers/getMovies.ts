@@ -8,6 +8,11 @@ export interface GetMoviesResponse {
   status: string;
 }
 
+export enum MESSAGE_STATUS {
+  RUNNING = 'running',
+  DONE = 'done',
+}
+
 const RESULTS_PER_PAGE = 10;
 const MAX_PAGES = 100;
 
@@ -18,7 +23,7 @@ self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
   if (moviesResult) {
     postMessage({
       movies: moviesResult.Search,
-      status: 'running'
+      status: MESSAGE_STATUS.RUNNING
     });
     const pages = Math.ceil((Number(moviesResult.totalResults) / RESULTS_PER_PAGE));
     let morePagesAvailable = pages > 1;
@@ -33,13 +38,13 @@ self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
       if (result?.Search) {
         postMessage({
           movies: result?.Search,
-          status: 'running'
+          status: MESSAGE_STATUS.RUNNING
         });
       }
     })
   }
   postMessage({
     movies: [],
-    status: 'done'
+    status: MESSAGE_STATUS.DONE
   });
 }
