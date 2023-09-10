@@ -2,6 +2,8 @@
 
 This project is for showcasing the API of https://www.omdbapi.com/.
 
+You can check it out on https://omdb-moviefinder.netlify.app/.
+
 A few features not yet included are:
 - Sorting of movies by custom fields
 - Multiple search terms
