@@ -11,13 +11,13 @@ export function MoviesHeader({ search, category, getMovies, setSearch, setCatego
     <div className='movies-header-wrapper'>
       <div className='movies-header'>
         <h1 className='movies-header-headline'>
-          Find your favourite movies
+          Find your favourite movies and series
         </h1>
         <FormRow>
           <Dropdown onChange={setCategory} onEnter={getMovies} options={MOVIE_CATEGORIES} value={category} />
           <Input value={search} onChange={setSearch} onEnter={getMovies} placeholder='Enter a movie title' />
           <Button className='primary' onClick={getMovies}>
-            Load Movies
+            Search
           </Button>
         </FormRow>
       </div>

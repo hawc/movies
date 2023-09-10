@@ -1,4 +1,4 @@
-.form-row  {
+.form-row {
   display: flex;
   max-width: 800px;
   padding: 2rem 0;
@@ -23,4 +23,10 @@
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
   flex-grow: 1;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-row {
+  padding: 1rem 0;
+  }
 }
