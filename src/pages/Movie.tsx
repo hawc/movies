@@ -28,6 +28,7 @@ function Movie() {
     } else {
       navigate('/');
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slug]);
 
   if (loading || !movie) {

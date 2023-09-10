@@ -21,6 +21,7 @@ function Movies() {
     if (search) {
       getMovies(search);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getMovies = async (query: string) => {
@@ -37,6 +38,7 @@ function Movies() {
       searchParams.delete('search');
     }
     setSearchParams(searchParams);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [movies])
 
   useEffect(() => {
@@ -45,6 +47,7 @@ function Movies() {
       setSearch(searchParamsSearch);
       getMovies(searchParamsSearch);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams])
 
   useEffect(() => {
