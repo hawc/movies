@@ -1,0 +1,45 @@
+.movie-details-headline {
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.movie-details-wrapper {
+  display: flex;
+  gap: 2rem;
+}
+
+.movie-details-poster {
+  border-radius: var(--border-radius);
+  box-shadow: 0 0.5rem 1.75rem -0.5rem var(--contrast-background);
+}
+
+.movie-details-poster-wrapper {
+  flex-basis: 300px;
+}
+
+.movie-details-content {
+  flex-shrink: 1;
+}
+
+.movie-details-content > *:first-child {
+  margin-block-start: 0;
+}
+
+.movie-details-imdb-link {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .movie-details-wrapper {
+    flex-direction: column;
+  }
+
+  .movie-details-poster-wrapper {
+    flex-basis: auto;
+  }
+
+.movie-details-poster {
+  width: 100%;
+}
+}

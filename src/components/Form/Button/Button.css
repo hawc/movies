@@ -1,0 +1,25 @@
+.form-button {
+  padding: 0.75rem 1.25rem;
+  border-radius: 2.5rem;
+  font-size: 1.25rem;
+  color: var(--contrast-content);
+  border: 1px solid var(--contrast-content);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.form-button.primary {
+  padding: 1rem 1.5rem;
+  color: var(--deep-black);
+  border-color: var(--deep-black);
+  border-radius: 3.5rem;
+  font-size: 1.75rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-button.form-button.primary {
+    padding: 0.75rem 1.25rem;
+    border-radius: 2.5rem;
+    font-size: 1.25rem;
+  }
+}

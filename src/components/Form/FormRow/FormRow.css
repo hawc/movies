@@ -1,0 +1,17 @@
+.form-row  {
+  display: flex;
+  max-width: 800px;
+  padding: 2rem 0;
+}
+.form-row > *:first-child {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  flex-grow: 1;
+}
+.form-row > *:last-child {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+.form-row > *:not(:last-child) {
+  border-right-width: 0 !important;
+}

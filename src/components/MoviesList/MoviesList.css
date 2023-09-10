@@ -1,0 +1,42 @@
+.movies-list {
+  display: flex;
+  gap: 2rem;
+  overflow: auto;
+  padding: 2rem 50px;
+}
+
+.movies-list-frame {
+  margin: 0 -1rem;
+  padding: 0 1rem;
+}
+
+.movies-list-wrapper {
+  position: relative;
+  margin: 0 -50px;
+  overflow: hidden;
+  max-width: 100vw;
+}
+
+.movies-list-wrapper::before {
+  content: '';
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  background-image: linear-gradient(90deg, var(--primary-background) 0%, transparent 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.movies-list-wrapper::after {
+  content: '';
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  background-image: linear-gradient(90deg, transparent 0%, var(--primary-background) 100%);
+  z-index: 1;
+  pointer-events: none;
+}

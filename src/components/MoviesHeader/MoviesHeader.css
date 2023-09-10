@@ -1,0 +1,28 @@
+.movies-header-wrapper {
+  position: relative;
+  width: 100vw;
+  margin: 0 -1rem 1rem;
+  background: var(--primary-content);
+  transform: translateX(calc(1rem  - 50%));
+  left: 50%;
+  background-image: url('/public/mesh-gradient.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.movies-header {
+  padding: 1rem;
+  max-width: calc(1200px - 2rem);
+  margin: 0 auto;
+  color: var(--primary-background);
+}
+
+.movies-header-headline {
+  color: var(--deep-black);
+}
+
+@media only screen and (max-width: 600px) {
+  .movies-header-headline {
+    margin: 0.5rem 0 0;
+  }
+}

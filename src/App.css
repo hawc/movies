@@ -1,0 +1,39 @@
+.app {
+  display: flex;
+  max-width: 1200px;
+  min-height: 100%;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  min-height: 4rem;
+  color: var(--contrast-content);
+}
+
+.app-title {
+  font-size: 2.5rem;
+  font-weight: 400;
+  letter-spacing: -1px;
+}
+
+.app-title a {
+  text-decoration: none;
+}
+
+.app-header-links {
+  display: flex;
+  align-items: center;
+}
+
+.app-footer {
+  text-align: center;
+}
+
+.app-main {
+  flex-basis: 100%;
+  flex-grow: 1;
+  padding-top: 0;
+}

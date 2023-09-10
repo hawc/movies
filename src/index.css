@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@1,900&display=swap');
+
+:root {
+  --deep-black: #000000;
+  --black: #222222;
+  --deep-white: #ffffff;
+  --white: #fafafa;
+
+  --border-radius: 0.5rem;
+  --base-font-size: 18px;
+  --primary-content: var(--black);
+  --contrast-content: var(--deep-black);
+  --primary-background: var(--white);
+  --contrast-background: var(--deep-white);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-content: var(--white);
+    --contrast-content: var(--deep-white);
+    --primary-background: var(--black);
+    --contrast-background: var(--deep-black);
+  }
+}
+
+body {
+  background-color: var(--primary-background);
+  color: var(--primary-content);
+  display: grid;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Helvetica', 'Helvetica Neue', 'Arial', sans-serif;
+  font-size: var(--base-font-size);
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+header,
+main,
+footer {
+    padding: 1rem;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-size: 1rem;
+  appearance: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0;
+}
+
+h1 {
+  margin: 1.5rem 0 0;
+  font-weight: 400;
+  letter-spacing: -2px;
+  font-size: 4.5rem;
+  line-height: 1.2;
+}
+
+h2 {
+  margin-bottom: 0.25rem;
+}
+
+p {
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus {
+  color: var(--primary-content);
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
