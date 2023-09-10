@@ -18,7 +18,7 @@ export function Input({ onChange, onEnter, type = 'text', value = '', placeholde
 
   return (
     <input
-      className="form-input"
+      className='form-input'
       type={type}
       value={value}
       placeholder={placeholder}

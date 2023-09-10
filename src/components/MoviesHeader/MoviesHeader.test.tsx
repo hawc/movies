@@ -8,6 +8,4 @@ describe('renders MoviesHeader', () => {
     const linkElement = screen.getByText(/Find your favourite movies/i);
     expect(linkElement).toBeInTheDocument();
   });
-
-
 });
