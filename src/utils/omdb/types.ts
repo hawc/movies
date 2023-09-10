@@ -36,7 +36,7 @@ export interface FetchResponse {
   Year: string;
 }
 
-export interface Search {
+export interface MovieDetails {
   Title: string;
   Year: string;
   imdbID: string;
@@ -45,19 +45,12 @@ export interface Search {
 }
 
 export interface SearchResponse {
-  Search: Search[];
+  Search: MovieDetails[];
   totalResults: string;
   Response: Boolean;
 }
 
 type ResponseStatus = Boolean;
-
-export interface Response {
-  Error?: string;
-  Response: ResponseStatus;
-  Search: any[];
-  totalResults: string;
-}
 
 export interface ErrorResponse {
   Error: string;

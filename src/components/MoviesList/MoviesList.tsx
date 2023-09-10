@@ -1,14 +1,14 @@
+import './MoviesList.css';
 import { useEffect, useMemo, useState } from 'react';
 import { MovieItem } from './Item/Item';
-import './MoviesList.css';
-import type { Search as Movie } from 'utils/omdb/types';
 import { Loader } from 'components/Loader/Loader';
+import type { MovieDetails } from 'utils/omdb/types';
 
-type GroupedMovies = null | { [key: string]: Movie[] };
+type GroupedMovies = null | { [key: string]: MovieDetails[] };
 
-export function MoviesList({ movies }: { movies: Movie[] }) {
+export function MoviesList({ movies }: { movies: MovieDetails[] }) {
   const [loading, setLoading] = useState<boolean>(true);
-  const [groupedMovies, setGroupedMovies] = useState<GroupedMovies | null>(null);
+  const [groupedMovies, setGroupedMovies] = useState<GroupedMovies>(null);
   const [movieCategories, setMovieCategories] = useState<string[]>([]);
 
   const movierSorter: Worker = useMemo(
@@ -51,13 +51,14 @@ export function MoviesList({ movies }: { movies: Movie[] }) {
 
   return (
     <>
+      <h2>Search results by year</h2>
       {movieCategories.map((moviesYear: string) => (
         <div key={`${moviesYear}${groupedMovies[moviesYear].length}`}>
-          <h2>{moviesYear}</h2>
+          <h3>{moviesYear}</h3>
           <div className='movies-list-frame'>
             <div className='movies-list-wrapper'>
               <ul className='movies-list'>
-                {groupedMovies[moviesYear].map((movie: Movie) => (
+                {groupedMovies[moviesYear].map((movie: MovieDetails) => (
                   <MovieItem key={movie.imdbID} movie={movie} />
                 ))}
               </ul>

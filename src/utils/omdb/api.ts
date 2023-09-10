@@ -1,5 +1,5 @@
-import { fetchData } from "utils/fetch";
-import { SearchResponse, FetchResponse, ErrorResponse } from "./types";
+import { fetchData } from 'utils/fetch';
+import type { SearchResponse, FetchResponse, ErrorResponse } from './types';
 
 function getOMDBMoviesUrl(title: string, type: string, page: number) {
   return `${process.env.REACT_APP_OMDB_API}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=${type}&s=${title}&page=${page}`;

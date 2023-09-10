@@ -1,5 +1,5 @@
 import './FormRow.css';
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 
 export function FormRow({ children }: PropsWithChildren) {
   return (

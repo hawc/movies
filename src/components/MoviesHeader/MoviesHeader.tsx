@@ -2,8 +2,9 @@ import './MoviesHeader.css';
 import { Button } from 'components/Form/Button/Button';
 import { FormRow } from 'components/Form/FormRow/FormRow';
 import { Input } from 'components/Form/Input/Input';
+import type { Dispatch, SetStateAction } from 'react';
 
-export function MoviesHeader({ search, getMovies, setSearch }: { search: string, getMovies: () => void, setSearch: React.Dispatch<React.SetStateAction<string>> }) {
+export function MoviesHeader({ search, getMovies, setSearch }: { search: string, getMovies: () => void, setSearch: Dispatch<SetStateAction<string>> }) {
   return (
     <div className='movies-header-wrapper'>
       <div className='movies-header'>

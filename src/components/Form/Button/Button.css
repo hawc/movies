@@ -17,7 +17,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .form-button.form-button.primary {
+  .form-button.primary {
     padding: 0.75rem 1.25rem;
     border-radius: 2.5rem;
     font-size: 1.25rem;

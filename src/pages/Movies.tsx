@@ -3,26 +3,19 @@ import { useSearchParams } from 'react-router-dom';
 import { MoviesList } from './../components/MoviesList/MoviesList';
 import { MoviesHeader } from './../components/MoviesHeader/MoviesHeader';
 import { Loader } from 'components/Loader/Loader';
-import { GetMoviesResponse } from 'workers/getMovies';
-import type { Search as Movie } from 'utils/omdb/types';
+import type { GetMoviesResponse } from 'workers/getMovies';
+import type { MovieDetails } from 'utils/omdb/types';
 
-function Movies() {
+export function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState<string>(searchParams.get('search') ?? '');
   const [loading, setLoading] = useState<boolean>(false);
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const [movies, setMovies] = useState<MovieDetails[]>([]);
 
   const movieGetter: Worker = useMemo(
     () => new Worker(new URL('./../workers/getMovies.ts', import.meta.url)),
     []
   );
-
-  useEffect(() => {
-    if (search) {
-      getMovies(search);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const getMovies = async (query: string) => {
     setMovies([]);
@@ -31,6 +24,13 @@ function Movies() {
       movieGetter.postMessage(query);
     }
   }
+
+  useEffect(() => {
+    if (search) {
+      getMovies(search);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     searchParams.set('search', search);
@@ -53,7 +53,7 @@ function Movies() {
   useEffect(() => {
     if (window.Worker) {
       movieGetter.onmessage = (event: MessageEvent<GetMoviesResponse>) => {
-        setMovies((oldArray: Movie[]) => [...oldArray, ...event.data.movies]);
+        setMovies((oldArray: MovieDetails[]) => [...oldArray, ...event.data.movies]);
         if (event.data.status === 'done') {
           setLoading(false);
         }
@@ -80,5 +80,3 @@ function Movies() {
     </>
   );
 }
-
-export default Movies;

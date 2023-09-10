@@ -1,10 +1,10 @@
 import { fetchMovies } from 'utils/omdb/api';
-import { Search } from 'utils/omdb/types';
+import { MovieDetails } from 'utils/omdb/types';
 
 type GetMoviesMessageBody = string;
 
 export interface GetMoviesResponse {
-  movies: Search[];
+  movies: MovieDetails[];
   status: string;
 }
 

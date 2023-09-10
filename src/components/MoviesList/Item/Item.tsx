@@ -1,10 +1,10 @@
 import './Item.css';
 import { Link } from 'react-router-dom';
-import type { Search as Movie } from 'utils/omdb/types';
+import type { MovieDetails } from 'utils/omdb/types';
 
 const NOT_AVAILABLE = 'N/A';
 
-export function MovieItem({ movie }: { movie: Movie }) {
+export function MovieItem({ movie }: { movie: MovieDetails }) {
   return (
     <li className="movie-item">
       <Link className="movie-item-link" to={`/movie/${movie.imdbID}/`}>

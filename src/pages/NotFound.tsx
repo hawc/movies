@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function NotFound() {
+export function NotFound() {
   return (
     <section>
       <p>
@@ -10,10 +10,8 @@ function NotFound() {
         Feel free to start a new search:
       </p>
       <p>
-        <Link to="/">Go to movie search</Link>
+        <Link to='/'>Go to movie search</Link>
       </p>
     </section>
   );
 }
-
-export default NotFound;

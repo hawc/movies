@@ -1,11 +1,11 @@
+import { useEffect, useState } from 'react';
 import { Loader } from 'components/Loader/Loader';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
-import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { fetchMovie } from 'utils/omdb/api';
-import { FetchResponse } from 'utils/omdb/types';
+import type { FetchResponse } from 'utils/omdb/types';
 
-function Movie() {
+export function Movie() {
   const navigate = useNavigate();
   const { slug } = useParams();
   const [movie, setMovie] = useState<FetchResponse | undefined>(undefined);
@@ -43,5 +43,3 @@ function Movie() {
     <MovieDetails movie={movie} />
   );
 }
-
-export default Movie;

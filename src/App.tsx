@@ -1,8 +1,9 @@
 import './App.css';
+import { PropsWithChildren } from 'react';
 import { Button } from 'components/Form/Button/Button';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 
-function App({ children }: React.PropsWithChildren) {
+export function App({ children }: PropsWithChildren) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -10,7 +11,7 @@ function App({ children }: React.PropsWithChildren) {
     <div className='app'>
       <header className='app-header'>
         <div className='app-title'>
-          <Link to="/">MovieFinder.</Link>
+          <Link to='/'>MovieFinder.</Link>
         </div>
         <div className='app-header-links'>
           {location.pathname.includes('/movie/') && (
@@ -22,10 +23,8 @@ function App({ children }: React.PropsWithChildren) {
         {children}
       </main>
       <footer className='app-footer'>
-        You want more movies? Check out your local Cinema®!
+        You want more movies? Check out your local cinema®!
       </footer>
     </div>
   );
 }
-
-export default App;

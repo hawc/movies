@@ -1,9 +1,9 @@
 import { groupBy } from '../utils/groupBy/groupBy';
-import type { Search as Movie } from 'utils/omdb/types';
+import type { MovieDetails } from 'utils/omdb/types';
 
 interface GroupMoviesMessageBody {
-  data: Movie[];
-  type: keyof Movie;
+  data: MovieDetails[];
+  type: keyof MovieDetails;
 }
 
 // eslint-disable-next-line no-restricted-globals
@@ -11,7 +11,7 @@ self.onmessage = (message: MessageEvent<GroupMoviesMessageBody>) => {
   const messageBody = message.data;
   const movies = messageBody.data;
   const sortType = messageBody.type;
-  const result = groupBy<Movie>(movies, sortType);
+  const result = groupBy<MovieDetails>(movies, sortType);
 
   postMessage(result);
 }

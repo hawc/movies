@@ -1,5 +1,5 @@
-import { PropsWithChildren } from 'react';
 import './Loader.css';
+import type { PropsWithChildren } from 'react';
 
 export function Loader({ children }: PropsWithChildren) {
   return (
