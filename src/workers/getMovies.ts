@@ -18,16 +18,21 @@ const MAX_PAGES = 100;
 
 // eslint-disable-next-line no-restricted-globals
 self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
-  const fetches = [];
+  // fetch first batch of movies
   const moviesResult = await fetchMovies(message.data, 1);
   if (moviesResult) {
     postMessage({
       movies: moviesResult.Search,
       status: MESSAGE_STATUS.RUNNING
     });
+    const fetches = [];
+
+    // check how many pages are available for current search
     const pages = Math.ceil((Number(moviesResult.totalResults) / RESULTS_PER_PAGE));
     let morePagesAvailable = pages > 1;
     let currentPage = 1;
+
+    // fetch available pages for more movies, limited to not exhaust API limit
     while (morePagesAvailable && currentPage < MAX_PAGES) {
       currentPage++;
       fetches.push(fetchMovies(message.data, currentPage));
@@ -36,6 +41,7 @@ self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
     const results = await Promise.all(fetches);
     results.forEach(result => {
       if (result?.Search) {
+        // return each batch from worker
         postMessage({
           movies: result?.Search,
           status: MESSAGE_STATUS.RUNNING

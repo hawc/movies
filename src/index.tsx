@@ -16,7 +16,7 @@ root.render(
       <Routes>
         <Route index element={<Movies />} />
         <Route path='/movie/:slug' element={<Movie />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
     </App>
   </BrowserRouter>

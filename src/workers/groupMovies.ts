@@ -8,10 +8,8 @@ interface GroupMoviesMessageBody {
 
 // eslint-disable-next-line no-restricted-globals
 self.onmessage = (message: MessageEvent<GroupMoviesMessageBody>) => {
-  const messageBody = message.data;
-  const movies = messageBody.data;
-  const sortType = messageBody.type;
-  const result = groupBy<MovieDetails>(movies, sortType);
+  const { data, type } = message.data;
+  const result = groupBy<MovieDetails>(data, type);
 
   postMessage(result);
 }
