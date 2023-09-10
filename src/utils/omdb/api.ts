@@ -1,6 +1,8 @@
 import { fetchData } from 'utils/fetch';
 import type { SearchResponse, FetchResponse, ErrorResponse } from './types';
 
+export const MOVIE_CATEGORIES = [{ key: 'Movies', value: 'movie' }, { key: 'Series', value: 'series' }];
+
 function getOMDBMoviesUrl(title: string, type: string, page: number) {
   return `${process.env.REACT_APP_OMDB_API}?apikey=${process.env.REACT_APP_OMDB_API_KEY}&type=${type}&s=${title}&page=${page}`;
 }
@@ -13,9 +15,8 @@ function isResponseOk<T extends SearchResponse | FetchResponse>(OMDBReponse: T |
   return 'Response' in OMDBReponse && OMDBReponse?.Response === 'True';
 }
 
-export async function fetchMovies(title: string, page: number = 0): Promise<SearchResponse | null> {
-  const type = 'movie';
-  const response = await fetchData<SearchResponse | ErrorResponse>(getOMDBMoviesUrl(title, type, page));
+export async function fetchMovies(title: string, category: string, page: number = 0): Promise<SearchResponse | null> {
+  const response = await fetchData<SearchResponse | ErrorResponse>(getOMDBMoviesUrl(title, category, page));
   if (response && isResponseOk(response)) {
     return response;
   }

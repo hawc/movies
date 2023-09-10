@@ -1,0 +1,22 @@
+.form-dropdown {
+  padding: 1rem 2.75rem 1rem 1.5rem;
+  color: var(--deep-white);
+  border: 1px solid transparent;
+  background-color: var(--black);
+  border-radius: 3.5rem;
+  font-size: 1.75rem;
+  min-width: 0;
+  background-image: url(/public/arrow-down.svg);
+  background-position: calc(100% - 1rem) center;
+  background-size: 15px 15px;
+  background-repeat: no-repeat;
+  min-width: fit-content;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-dropdown {
+    padding: 0.75rem 1.25rem;
+    border-radius: 2.5rem;
+    font-size: 1.25rem;
+  }
+}

@@ -1,7 +1,10 @@
 import { fetchMovies } from 'utils/omdb/api';
 import { MovieDetails } from 'utils/omdb/types';
 
-type GetMoviesMessageBody = string;
+interface GetMoviesMessageBody {
+  search: string;
+  category: string;
+};
 
 export interface GetMoviesResponse {
   movies: MovieDetails[];
@@ -19,7 +22,7 @@ const MAX_PAGES = 100;
 // eslint-disable-next-line no-restricted-globals
 self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
   // fetch first batch of movies
-  const moviesResult = await fetchMovies(message.data, 1);
+  const moviesResult = await fetchMovies(message.data.search, message.data.category, 1);
   if (moviesResult) {
     postMessage({
       movies: moviesResult.Search,
@@ -35,7 +38,7 @@ self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
     // fetch available pages for more movies, limited to not exhaust API limit
     while (morePagesAvailable && currentPage < MAX_PAGES) {
       currentPage++;
-      fetches.push(fetchMovies(message.data, currentPage));
+      fetches.push(fetchMovies(message.data.search, message.data.category, currentPage));
       morePagesAvailable = currentPage < pages;
     }
     const results = await Promise.all(fetches);
