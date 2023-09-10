@@ -15,7 +15,7 @@ export function MoviesHeader({ search, category, getMovies, setSearch, setCatego
         </h1>
         <FormRow>
           <Dropdown onChange={setCategory} onEnter={getMovies} options={MOVIE_CATEGORIES} value={category} />
-          <Input value={search} onChange={setSearch} onEnter={getMovies} placeholder='Enter a movie title' />
+          <Input value={search} onChange={setSearch} onEnter={getMovies} placeholder={category === 'series' ? 'Enter a series title' : 'Enter a movie title'} />
           <Button className='primary' onClick={getMovies}>
             Search
           </Button>

@@ -23,7 +23,7 @@ export function App({ children }: PropsWithChildren) {
         {children}
       </main>
       <footer className='app-footer'>
-        You want more movies? Check out your local cinema®!
+        You want more movies? Check out <Link to='https://www.rottentomatoes.com/browse/movies_in_theaters/' target='_blank' rel='noopener'>your local cinema</Link>!
       </footer>
     </div>
   );
