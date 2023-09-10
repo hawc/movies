@@ -54,4 +54,8 @@
     height: 222px;
     width: 150px;
   }
+
+  .movie-item-details {
+    transform: translateY(0);
+  }
 }
