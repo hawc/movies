@@ -1,7 +1,11 @@
 import './Button.css';
 import { ButtonHTMLAttributes } from 'react';
 
-export function Button({ children, onClick, type = 'button', className = '' }: { onClick: () => void } & ButtonHTMLAttributes<HTMLButtonElement>) {
+interface ButtonType extends ButtonHTMLAttributes<HTMLButtonElement> {
+  onClick: () => void;
+};
+
+export function Button({ children, onClick, type = 'button', className = '' }: ButtonType) {
   return (
     <button className={`form-button ${className}`} type={type} onClick={onClick}>{children}</button>
   )

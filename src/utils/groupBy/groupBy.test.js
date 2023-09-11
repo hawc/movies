@@ -29,13 +29,14 @@ const data = [
 
 describe('group movies by year', () => {
   const groupedMovies = groupBy(data, 'Year');
+  const keys = Object.keys(groupedMovies);
 
   it('items are grouped correctly', () => {
-    expect(Object.keys(groupedMovies)).toHaveLength(4);
+    expect(keys).toHaveLength(4);
   });
 
   it('values are like in raw array', () => {
-    expect(Object.keys(groupedMovies)).toContain('1976');
+    expect(keys).toContain('1976');
     expect(groupedMovies['1976'][0]).toMatchObject({
       'Title': 'Movie Title 2',
       'Year': '1976',

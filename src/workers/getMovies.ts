@@ -22,7 +22,8 @@ const MAX_PAGES = 100;
 // eslint-disable-next-line no-restricted-globals
 self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
   // fetch first batch of movies
-  const moviesResult = await fetchMovies(message.data.search, message.data.category, 1);
+  let currentPage = 1;
+  const moviesResult = await fetchMovies(message.data.search, message.data.category, currentPage);
   if (moviesResult) {
     postMessage({
       movies: moviesResult.Search,
@@ -33,7 +34,6 @@ self.onmessage = async (message: MessageEvent<GetMoviesMessageBody>) => {
     // check how many pages are available for current search
     const pages = Math.ceil((Number(moviesResult.totalResults) / RESULTS_PER_PAGE));
     let morePagesAvailable = pages > 1;
-    let currentPage = 1;
 
     // fetch available pages for more movies, limited to not exhaust API limit
     while (morePagesAvailable && currentPage < MAX_PAGES) {

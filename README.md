@@ -6,14 +6,15 @@ You can check it out on https://omdb-moviefinder.netlify.app/.
 
 A few features not yet included are:
 - Sorting of movies by custom fields
-- Multiple search terms
 - Server side data fetching
 - Server side rendering
 - Cache API results
 - Image pregeneration
+- Implement performance checks
 
 Further todos are:
 - Approach high test coverage
+- Audit packages for production
 
 ## Available Scripts
 

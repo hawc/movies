@@ -1,4 +1,4 @@
-import { fetchData } from 'utils/fetch';
+import { fetchData } from 'utils/fetch/fetch';
 import type { SearchResponse, FetchResponse, ErrorResponse } from './types';
 
 export const MOVIE_CATEGORIES = [{ key: 'Movies', value: 'movie' }, { key: 'Series', value: 'series' }];

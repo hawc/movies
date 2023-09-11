@@ -1,6 +1,5 @@
 export type Type = 'movie' | 'series' | 'episode';
 export type Rated = 'PG' | 'TV-MA' | string;
-export type Genre = 'Animation' | 'Adventure' | 'Comedy' | 'Family' | 'Fantasy' | string;
 type NotAvailable = 'N/A';
 type Boolean = 'True' | 'False';
 
@@ -16,7 +15,7 @@ export interface FetchResponse {
   Country: string;
   Director: string;
   DVD: string | NotAvailable;
-  Genre: Genre[];
+  Genre: string;
   imdbRating: string;
   imdbVotes: string;
   imdbID: string;
@@ -27,12 +26,13 @@ export interface FetchResponse {
   Production: string | NotAvailable;
   Rated: Rated;
   Ratings: Rating[];
+  Response: Boolean;
   Released: string;
   Runtime: string;
   Title: string;
   Type: Type;
   Website: string | NotAvailable;
-  Writers: string[];
+  Writer: string;
   Year: string;
 }
 

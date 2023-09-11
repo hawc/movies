@@ -6,7 +6,15 @@ import { Dropdown } from 'components/Form/Dropdown/Dropdown';
 import { MOVIE_CATEGORIES } from 'utils/omdb/api';
 import type { Dispatch, SetStateAction } from 'react';
 
-export function MoviesHeader({ search, category, getMovies, setSearch, setCategory }: { search: string, category: string, getMovies: () => void, setSearch: Dispatch<SetStateAction<string>>, setCategory: Dispatch<SetStateAction<string>> }) {
+interface MoviesHeaderType {
+  search: string;
+  category: string;
+  getMovies: () => void;
+  setSearch: Dispatch<SetStateAction<string>>;
+  setCategory: Dispatch<SetStateAction<string>>;
+}
+
+export function MoviesHeader({ search, category, getMovies, setSearch, setCategory }: MoviesHeaderType) {
   return (
     <div className='movies-header-wrapper'>
       <div className='movies-header'>
